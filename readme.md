@@ -84,14 +84,12 @@ The search concludes when either no valid moves are available or the maximum num
 - The `run` method iterates through a specified number of steps or until no legal moves remain, randomly selecting from the available legal moves at each step to simulate the knight's path.
 - This Monte Carlo method allows for the exploration of the knight's movement patterns on the chessboard, useful for studying the knight's tour problem or for creating educational tools and simulations.
 
-![Path Tracing Animation](/path_tracing.gif)
+<!-- ![Path Tracing Animation](/path_tracing.gif)
 
-<img src="/path_tracing.gif">
+<img src="/path_tracing.gif"> -->
 <p align="center">
-![Path Tracing Animation](/path_tracing.gif)
-<img src="/path_tracing.gif" alt="Path Tracing Animation" height="500">
-
+    <img src="/path_tracing.gif" alt="Path Tracing Animation" height="500"> 
 </p>
-<div align="center">
+<!-- <div align="center">
     <img src="/path_tracing.gif">
-</div>
+</div> -->
