@@ -1,5 +1,9 @@
 ## Stochastic Simulation for Solving Knight's Tour Problem
 
+<p align="center">
+    <img src="/path_tracing.gif" alt="Path Tracing Animation" height="500"> 
+</p>
+
 The Knight's Tour is a classic problem in the field of chess and mathematics, particularly in graph theory. It involves moving a knight on a chessboard in such a way that it visits every square exactly once. If the knight ends on a square that is one knight's move from the beginning square (thus, it could continue with the same path), the tour is closed; otherwise, it is open.
 
 The chessboard can be of any size, but the problem is traditionally considered on the standard 8x8 board. The knight moves in an L-shape. This unique movement creates a complex challenge in arranging a tour that covers all 64 squares without repetition.
@@ -83,13 +87,3 @@ The search concludes when either no valid moves are available or the maximum num
 - The `valid_positions` method dynamically calculates legal moves from the current position considering the chessboard's boundaries and previously visited spots.
 - The `run` method iterates through a specified number of steps or until no legal moves remain, randomly selecting from the available legal moves at each step to simulate the knight's path.
 - This Monte Carlo method allows for the exploration of the knight's movement patterns on the chessboard, useful for studying the knight's tour problem or for creating educational tools and simulations.
-
-<!-- ![Path Tracing Animation](/path_tracing.gif)
-
-<img src="/path_tracing.gif"> -->
-<p align="center">
-    <img src="/path_tracing.gif" alt="Path Tracing Animation" height="500"> 
-</p>
-<!-- <div align="center">
-    <img src="/path_tracing.gif">
-</div> -->
