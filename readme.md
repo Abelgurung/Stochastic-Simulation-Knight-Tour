@@ -6,46 +6,46 @@ The chessboard can be of any size, but the problem is traditionally considered o
 
 Mathematically, the Knight's Tour can be represented as a Hamiltonian path or cycle (for closed tours) in a graph constructed from the chessboard, where each square is a node and each legal knight move is an edge. Finding a Knight's Tour is a specific instance of the more general Hamiltonian path problem, which is NP-complete for arbitrary graphs but solvable for the specific structure of the knight's movements on a chessboard.
 
+The purpose of this program is not to search efficiently; instead, it is to do more statistical studies on the complex patterns made by stochastic processes.
+
 This Python class, named `mc_search`, implements a Monte Carlo search method to generate a path for a knight on a chessboard, given a starting position and board size. The class is specifically designed to simulate the knight's legal moves across the chessboard to explore different positions without revisiting the same spot. Here's a detailed breakdown of its components and functionality:
 
 ### Initialization
 
-Let \(N\) be the size of the chessboard, which is an \(N \times N\) grid. Let \(s = (x_s, y_s)\) be the starting position of the knight on the board, where \(x_s\) and \(y_s\) are the coordinates on the chessboard.
+Let $N$ be the size of the chessboard, which is an $N \times N$ grid. Let $s = (x_s, y_s)$ be the starting position of the knight on the board, where $x_s$ and $y_s$ are the coordinates on the chessboard.
 
 The Monte Carlo search for a knight's tour is initialized with:
 
-- The chessboard size \(N\).
-- The current position \(c = s\), initially set to the starting position.
-- The path \(P\) of visited positions, initially \(P = \{s\}\).
-- The set of knight moves \(M\), where \(M = \{(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)\}\).
+- The chessboard size $N$.
+- The current position $c = s$, initially set to the starting position.
+- The path $P$ of visited positions, initially $P = \{s\}$.
+- The set of knight moves $M$, where $M = \{(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)\}$.
 
 ## Process
 
-### 1. Initialization
+Start with the current position $c = s$ and an initial path $P = \{s\}$.
 
-Start with the current position \(c = s\) and an initial path \(P = \{s\}\).
+### Search
 
-### 2. Search
-
-For each step \(i\) from \(1\) to \(k\), where \(k\) is the maximum number of steps:
+For each step $i$ from $1$ to $k$, where $k$ is the maximum number of steps:
 
 #### a. Generate Potential Moves
 
-For the current position \(c = (x_c, y_c)\), calculate potential moves \(P_M = \{c + m | m \in M\}\).
+For the current position $c = (x_c, y_c)$, calculate potential moves $P_M = \{c + m | m \in M\}$.
 
 #### b. Validate Moves
 
-- Filter out moves that go outside the chessboard bounds to get \(P_M' = \{m \in P_M | 0 \leq m_x < N \land 0 \leq m_y < N\}\), where \(m = (m_x, m_y)\).
-- Further filter \(P_M'\) to exclude moves leading to previously visited positions, resulting in the set of valid moves \(V = \{m \in P_M' | m \notin P\}\).
+- Filter out moves that go outside the chessboard bounds to get $P_M' = \{m \in P_M | 0 \leq m_x < N \land 0 \leq m_y < N\}$, where $m = (m_x, m_y)$.
+- Further filter $P_M'$ to exclude moves leading to previously visited positions, resulting in the set of valid moves $V = \{m \in P_M' | m \notin P\}$.
 
 #### c. Select and Move
 
-- If \(V\) is empty, the search terminates as no further moves are possible.
-- Otherwise, randomly select a new position \(c'\) from \(V\), set \(c = c'\), and append \(c'\) to \(P\).
+- If $V$ is empty, the search terminates as no further moves are possible.
+- Otherwise, randomly select a new position $c'$ from $V$, set $c = c'$, and append $c'$ to $P$.
 
-### 3. Termination
+### Termination
 
-The search concludes when either no valid moves are available or the maximum number of steps \(k\) is reached. The output is the path \(P\), representing the sequence of moves made from the starting position.
+The search concludes when either no valid moves are available or the maximum number of steps $k$ is reached. The output is the path $P$, representing the sequence of moves made from the starting position.
 
 ### Class Definition: `mc_search`
 
@@ -84,4 +84,14 @@ The search concludes when either no valid moves are available or the maximum num
 - The `run` method iterates through a specified number of steps or until no legal moves remain, randomly selecting from the available legal moves at each step to simulate the knight's path.
 - This Monte Carlo method allows for the exploration of the knight's movement patterns on the chessboard, useful for studying the knight's tour problem or for creating educational tools and simulations.
 
-This class provides a foundational approach to exploring knight's tour-like problems and can be extended or modified for more complex simulations or constraints.
+![Path Tracing Animation](/path_tracing.gif)
+
+<img src="/path_tracing.gif">
+<p align="center">
+![Path Tracing Animation](/path_tracing.gif)
+<img src="/path_tracing.gif" alt="Path Tracing Animation" height="500">
+
+</p>
+<div align="center">
+    <img src="/path_tracing.gif">
+</div>
