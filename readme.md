@@ -22,12 +22,12 @@ The Monte Carlo search for a knight's tour is initialized with:
 
 - The chessboard size $N$.
 - The current position $c = s$, initially set to the starting position.
-- The path $P$ of visited positions, initially $P = \{s\}$.
-- The set of knight moves $M$, where $M = \{(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)\}$.
+- The path $P$ of visited positions, initially $P = \lbrace s \rbrace$.
+- The set of knight moves $M$, where $M = \lbrace(-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)\rbrace$.
 
 ## Process
 
-Start with the current position $c = s$ and an initial path $P = \{s\}$.
+Start with the current position $c = s$ and an initial path $P = \lbrace s \rbrace$.
 
 ### Search
 
@@ -35,12 +35,12 @@ For each step $i$ from $1$ to $k$, where $k$ is the maximum number of steps:
 
 #### a. Generate Potential Moves
 
-For the current position $c = (x_c, y_c)$, calculate potential moves $P_M = \{c + m | m \in M\}$.
+For the current position $c = (x_c, y_c)$, calculate potential moves $P_M = \lbrace c + m | m \in M \rbrace$.
 
 #### b. Validate Moves
 
-- Filter out moves that go outside the chessboard bounds to get $P_M' = \{m \in P_M | 0 \leq m_x < N \land 0 \leq m_y < N\}$, where $m = (m_x, m_y)$.
-- Further filter $P_M'$ to exclude moves leading to previously visited positions, resulting in the set of valid moves $V = \{m \in P_M' | m \notin P\}$.
+- Filter out moves that go outside the chessboard bounds to get $P_M' = \lbrace m \in P_M | 0 \leq m_x < N \land 0 \leq m_y < N \rbrace$, where $m = (m_x, m_y)$.
+- Further filter $P_M'$ to exclude moves leading to previously visited positions, resulting in the set of valid moves $V = \lbrace m \in P_M' | m \notin P \rbrace$.
 
 #### c. Select and Move
 
